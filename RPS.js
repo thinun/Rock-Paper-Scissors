@@ -1,3 +1,12 @@
+let user_score = JSON.parse(localStorage.getItem('user_score'))
+if (!user_score) {
+    user_score = {
+        user_win: 0,
+        user_lose: 0,
+        user_tie: 0,
+    }
+}
+
 function computerMove() {
     let computer_move = Math.random()
     if (computer_move >= 0 && computer_move <= 1 / 3) {
@@ -23,45 +32,48 @@ function paper() {
 function scissors() {
     let user_move = 'Scissors'
     result(user_move, computerMove())
-
 }
-let user_win=0
-let user_lose=0
-let user_tie=0
+
+
 function result(user_move, computer_move) {
     if (user_move === computer_move) {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}`
-        document.getElementById('result-text').innerText = `Tie!!`
-        user_tie++
+        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, Tie!!`
+        user_score.user_tie++
     } else if (user_move === 'Rock' && computer_move === "Scissors") {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}`
-        document.getElementById('result-text').innerText = `You Win!`
-        user_win++
+        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, You Win!`
+        user_score.user_win++
     } else if (user_move === 'Paper' && computer_move === 'Rock') {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}`
-        document.getElementById('result-text').innerText = `You Win!`
-        user_win++
+        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, You Win!`
+        user_score.user_win++
     } else if (user_move === 'Scissors' && computer_move === 'Paper') {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}`
-        document.getElementById('result-text').innerText = `You Win!`
-        user_win++
+        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, You Win!`
+        user_score.user_win++
     } else {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}`
-        document.getElementById('result-text').innerText = `You Lose!!!`
-        user_lose++
+        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, You Lose!!!`
+        user_score.user_lose++
     }
-    score()
+    scoreDisplay()
+    localStorage.setItem('user_score', JSON.stringify(user_score))
+
 }
 
 
-function score(){
-    document.getElementById('result-text').innerText=`Win ${user_win} , Loses ${user_lose}, Ties ${user_tie}`
+function scoreDisplay() {
+
+    if (user_score) {
+        document.getElementById('result-text')
+            .innerHTML = `Win ${user_score.user_win}, Loses ${user_score.user_lose}, Ties ${user_score.user_tie}`;
+    } else {
+
+        document.getElementById('score-display').innerText = "Scores not available";
+    }
 }
 
-function resetScore(){
-    user_win=0
-    user_lose=0
-    user_tie=0
-    document.getElementById('game-score').innerText="Lets Play!!"
-    document.getElementById('result-text').innerText=`Win ${user_win} , Loses ${user_lose}, Ties ${user_tie}`
+function resetScore() {
+    user_score.user_win = 0
+    user_score.user_lose = 0
+    user_score.user_tie = 0
+    document.getElementById('game-score').innerText = "Lets Play!!"
+    document.getElementById('result-text')
+        .innerText = `Win ${user_score.user_win} , Loses ${user_score.user_lose}, Ties ${user_score.user_tie}`
 }
