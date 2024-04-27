@@ -6,17 +6,27 @@
     <link rel="stylesheet" href="RPS.css">
 </head>
 <body>
-<p class="title">Rock Paper Scissors</p>
-<button class="rock-button" onclick="rock()">Rock</button>
-<button class="paper-button" onclick="paper()">Paper</button>
-<button class="scissors-button" onclick="scissors()">Scissors</button>
-<button class="reset-button" onclick="resetScore()">Reset Score</button>
+<header><p class="title">Rock Paper Scissors</p></header>
+<main>
+    <div class="button-grid">
+        <button class="rock-button" onclick="rock()"><img src="rock-emoji.png" class="rock-image" alt="rock-img">
+        </button>
+        <button class="paper-button" onclick="paper()"><img src="paper-emoji.png" class="paper-image" alt="paper-img">
+        </button>
+        <button class="scissors-button" onclick="scissors()"><img src="scissors-emoji.png" class="scissors-image"
+                                                                  alt="scissors-img"></button>
 
-<p class="score" id="game-score"></p>
-<p id="result-text"></p>
-<p id="score-display"></p>
+    </div>
+    <div class="reset-button-bottom">
+        <button class="reset-button" onclick="resetScore()">Reset Score</button>
+    </div>
+    <div class="bottom">
+        <div><p class="score" id="game-score"></p></div>
+        <div><p id="result-text"></p></div>
+        <div><p id="score-display"></p></div>
 
-
+    </div>
+</main>
 <script src="RPS.js"></script>
 </body>
 </html>

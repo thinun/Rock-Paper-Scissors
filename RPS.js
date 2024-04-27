@@ -37,19 +37,19 @@ function scissors() {
 
 function result(user_move, computer_move) {
     if (user_move === computer_move) {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, Tie!!`
+        document.getElementById('game-score').innerHTML = `Your move is ${user_move}, Computer move is ${computer_move}, <b style="color: yellow">Tie!!</b>`
         user_score.user_tie++
     } else if (user_move === 'Rock' && computer_move === "Scissors") {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, You Win!`
+        document.getElementById('game-score').innerHTML = `Your move is ${user_move}, Computer move is ${computer_move},  <b style="color: green">You Win!</b>`
         user_score.user_win++
     } else if (user_move === 'Paper' && computer_move === 'Rock') {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, You Win!`
+        document.getElementById('game-score').innerHTML = `Your move is ${user_move}, Computer move is ${computer_move}, <b style="color: green">You Win!</b>`
         user_score.user_win++
     } else if (user_move === 'Scissors' && computer_move === 'Paper') {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, You Win!`
+        document.getElementById('game-score').innerHTML = `Your move is ${user_move}, Computer move is ${computer_move},  <b style="color: green">You Win!</b>`
         user_score.user_win++
     } else {
-        document.getElementById('game-score').innerText = `Your move is ${user_move}, Computer move is ${computer_move}, You Lose!!!`
+        document.getElementById('game-score').innerHTML= `Your move is ${user_move}, Computer move is ${computer_move}, <b style="color: red">You Lose!!!</b>`
         user_score.user_lose++
     }
     scoreDisplay()
