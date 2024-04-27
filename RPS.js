@@ -54,7 +54,6 @@ function result(user_move, computer_move) {
     }
     scoreDisplay()
     localStorage.setItem('user_score', JSON.stringify(user_score))
-
 }
 
 
