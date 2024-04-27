@@ -4,11 +4,13 @@
 The project includes features such as score tracking, visual feedback, and responsive design to provide an enjoyable and interactive gaming experience. The user's score, including the number of wins, losses, and ties, is displayed on the web page and stored in the browser's local storage for persistence across page reloads and browser sessions. Visual feedback is provided after each round, indicating the user's move, the computer's move, and the result of the game.
 </p>
 <h3>Features</h3>
-Play Rock, Paper, Scissors against the computer.
-Track your score: number of wins, losses, and ties.
-Visual feedback after each round.
-Responsive design for optimal viewing across different devices and screen sizes.
-Reset score functionality to start afresh.
+<ul>
+  <li>Play Rock, Paper, Scissors against the computer.</li>
+  <li>Track your score: number of wins, losses, and ties.</li>
+  <li>Visual feedback after each round.</li>
+  <li>Responsive design for optimal viewing across different devices and screen sizes.</li>
+  <li>Reset score functionality to start afresh.</li>
+</ul>
 <h3>Technologies Used</h3>
 HTML5
 CSS3
